@@ -31,11 +31,11 @@ pros::Task Lift_Task(lift_task);  // Create the task, this will cause the functi
 
 void lb_opcontrol() {
   // load
-  if (master.get_digital(pros::E_CONTROLLER_DIGITAL_X)) {
+  if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)) {
       lbPID.target_set(300); 
   }
   // score
-  else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+  else if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
       lbPID.target_set(500);
   }
   /*else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
