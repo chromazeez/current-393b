@@ -9,8 +9,11 @@ void lb_init() {
 
 void lift_task() {
   pros::delay(2000);  // Set EZ-Template calibrate before this function starts running
-  set_lb(lbPID.compute(lb_angle.get_position()/100));
-  pros::delay(ez::util::DELAY_TIME);
+  while (true){
+    set_lb(lbPID.compute(lb_angle.get_position()/100));
+    pros::delay(ez::util::DELAY_TIME);
+  }
+
 }
 pros::Task Lift_Task(lift_task);  // Create the task, this will cause the function to start running
 
