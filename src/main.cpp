@@ -152,7 +152,7 @@ void opcontrol() {
       liftOpControl();
       nextState();
 
-      printf("Angle: %ld \n", lb_angle.get_angle());
+      printf("Angle: %d \n", lb_angle.get_angle());
 
       pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }

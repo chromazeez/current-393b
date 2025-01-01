@@ -2,6 +2,8 @@
 #include "pros/misc.h"
 #include "subsystems.hpp"
 
+
+
 const int numStates = 3;
 int states[numStates]= {0,0,0};
 int currState = 0;
@@ -23,7 +25,6 @@ void liftControl(){
 }
 
 void liftInitialize(){
-  lb_angle.reset_position();
   pros::Task liftControlTask([]{
     while(true){
       liftControl();

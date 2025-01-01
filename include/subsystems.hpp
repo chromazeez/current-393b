@@ -20,7 +20,7 @@ void set_intake(int input);
 void intake_opcontrol();
 
 //lb
-inline pros::Motor lb(4);
+inline pros::Motor lb(-4);
 inline pros::Rotation lb_angle(5);
 
 
@@ -28,6 +28,7 @@ void nextState();
 void liftInitialize();
 void liftControl();
 void liftOpControl();
+
 
 /*
 void lb_opcontrol();
