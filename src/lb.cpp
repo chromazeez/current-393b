@@ -26,7 +26,7 @@ void lb_opcontrol() {
   }
   // score
   else if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
-      lbPID.target_set(2500);
+      lbPID.target_set(100);
   }
   //else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
      // lbPID.target_set(0);
