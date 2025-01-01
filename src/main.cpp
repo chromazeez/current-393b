@@ -123,6 +123,8 @@ void opcontrol() {
 
   set_clamp(false);
 
+  liftInitialize();
+
   while (true) {
     // PID Tuner
     // After you find values that you're happy with, you'll have to set them in auton.cpp
@@ -147,8 +149,8 @@ void opcontrol() {
 
       intake_opcontrol();
       clamp_opcontrol();
-      lb_init();
-      lb_opcontrol();
+      liftOpControl();
+      nextState();
 
       pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }

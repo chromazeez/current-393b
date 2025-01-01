@@ -23,6 +23,12 @@ void intake_opcontrol();
 inline pros::Motor lb(4);
 inline pros::Rotation lb_angle(5);
 
+
+void nextState(); 
+void liftInitialize();
+void liftControl();
+void liftOpControl();
+
 /*
 void lb_opcontrol();
 void lb_init();
