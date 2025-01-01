@@ -2,6 +2,45 @@
 #include "pros/misc.h"
 #include "subsystems.hpp"
 
+const int numStates = 3;
+int states[numStates]= {0,30,250};
+int currState = 0;
+int target = 0;
+
+void nextState(){
+  currState += 1;
+  if (currState == numStates){
+    currState = 0;
+  }
+  target = states[currState];
+}
+
+void liftControl(){
+  double kp = 0.5;
+  double error = target - lb_angle.get_position();
+  double velocity = error * kp;
+  lb.move(velocity);
+}
+
+void liftInitialize(){
+  pros::Task liftControlTask([]{
+    while(true){
+      liftControl();
+      pros::delay(20);
+    }
+  });
+}
+
+void liftOpControl(){
+  if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)){
+    nextState();
+
+  pros::delay(20);
+
+  }
+}
+
+/*
 void lb_init() {
   lb_angle.reset_position();
   lb.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
@@ -28,7 +67,7 @@ pros::Task Lift_Task(lift_task);  // Create the task, this will cause the functi
     lbPID.target_set(0);
   // You can do stuff here and it'll happen while the lift moves
     lb_wait();  // Wait for the lift to reach its target
-}*/
+}
 
 void lb_opcontrol() {
   // load
@@ -41,7 +80,7 @@ void lb_opcontrol() {
   }
   /*else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
       lbPID.target_set(0);
-  }*/
+  }
   pros::delay(ez::util::DELAY_TIME);
-    
-}
+}    
+*/
