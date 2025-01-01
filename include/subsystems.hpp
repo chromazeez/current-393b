@@ -23,14 +23,6 @@ void intake_opcontrol();
 inline pros::Motor lb(-4);
 inline pros::Rotation lb_angle(5);
 
-
-void nextState(); 
-void liftInitialize();
-void liftControl();
-void liftOpControl();
-
-
-/*
 void lb_opcontrol();
 void lb_init();
 inline void set_lb(int input,int velocity) {
@@ -44,4 +36,10 @@ inline void lb_wait() {
     pros::delay(ez::util::DELAY_TIME);
   }
 }
+
+/*
+void nextState(); 
+void liftInitialize();
+void liftControl();
+void liftOpControl();
 */

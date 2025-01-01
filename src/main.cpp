@@ -123,7 +123,8 @@ void opcontrol() {
 
   set_clamp(false);
 
-  liftInitialize();
+  lb_init();
+
 
   while (true) {
     // PID Tuner
@@ -149,10 +150,9 @@ void opcontrol() {
 
       intake_opcontrol();
       clamp_opcontrol();
-      liftOpControl();
-      nextState();
+      lb_opcontrol();
 
-      printf("Angle: %d \n", lb_angle.get_angle());
+      printf("Angle: %d \n", lb_angle.get_angle()/100);
 
       pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
