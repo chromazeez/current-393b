@@ -3,6 +3,7 @@
 #include "EZ-Template/api.hpp"
 #include "EZ-Template/piston.hpp"
 #include "api.h"
+#include "pros/motors.h"
 #include "pros/rotation.hpp"
 
 // Your motors, sensors, etc. should go here.  Below are examples
@@ -24,11 +25,11 @@ inline pros::Rotation lb_angle(5);
 
 void lb_opcontrol();
 void lb_init();
-inline void set_lb(int input) {
-  lb.move(input);
+inline void set_lb(int input,int velocity) {
+  lb.move_absolute(input,velocity);
 }
 
-inline ez::PID lbPID{0.45, 0, 0, 0, "LadyBrown"};
+inline ez::PID lbPID{2, 0, 0, 0, "LadyBrown"};
 
 inline void lb_wait() {
   while (lbPID.exit_condition({lb}, true) == ez::RUNNING) {

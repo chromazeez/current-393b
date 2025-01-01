@@ -4,13 +4,14 @@
 
 void lb_init() {
   lb_angle.reset_position();
+  lb.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   lbPID.exit_condition_set(80, 50, 300, 150, 500, 500);
 }
 
 void lift_task() {
   pros::delay(2000);  // Set EZ-Template calibrate before this function starts running
   while (true){
-    set_lb(lbPID.compute(lb_angle.get_position()/100));
+    set_lb(lbPID.compute(lb_angle.get_position()/100),100);
     pros::delay(ez::util::DELAY_TIME);
   }
 
@@ -36,7 +37,7 @@ void lb_opcontrol() {
   }
   // score
   else if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
-      lbPID.target_set(10);
+      lbPID.target_set(2500);
   }
   /*else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
       lbPID.target_set(0);
