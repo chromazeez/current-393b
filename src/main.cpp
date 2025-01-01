@@ -29,6 +29,8 @@ void initialize() {
 
   pros::delay(500);  // Stop the user from doing anything while legacy ports configure
 
+  chassis.pid_tuner_pids.push_back({"Lift PID", &lbPID.constants});
+
   // Configure your chassis controls
   chassis.opcontrol_curve_buttons_toggle(true);  // Enables modifying the controller curve with buttons on the joysticks
   chassis.opcontrol_drive_activebrake_set(0);    // Sets the active brake kP. We recommend ~2.  0 will disable.
@@ -48,6 +50,7 @@ void initialize() {
       Auton("red ringside", red_solowp),
       Auton("red goalside", red_2ring_goalside),
       Auton("blue goalside", blue_2ring_goalside),
+      Auton("lift test", lift_pid),
 
       //Auton("Drive and Turn\n\nDrive forward, turn, come back. ", drive_and_turn),
       //Auton("Drive and Turn\n\nSlow down during drive.", wait_until_change_speed),

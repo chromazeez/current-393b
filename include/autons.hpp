@@ -13,5 +13,6 @@ void swing_example();
 void motion_chaining();
 void combining_movements();
 void interfered_example();
+void lift_pid();
 
 void default_constants();

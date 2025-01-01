@@ -24,6 +24,8 @@ void default_constants() {
   chassis.pid_odom_angular_constants_set(6.5, 0.0, 52.5);    // Angular control for odom motions
   chassis.pid_odom_boomerang_constants_set(5.8, 0.0, 32.5);  // Angular control for boomerang motions
 
+  
+
 
   // exit conditions
   chassis.pid_turn_exit_condition_set(90_ms, 3_deg, 250_ms, 7_deg, 500_ms, 500_ms);
@@ -189,6 +191,11 @@ void interfered_example() {
 
   chassis.pid_turn_set(90_deg, TURN_SPEED);
   chassis.pid_wait();
+}
+
+void lift_pid(){
+  lbPID.target_set(60);
+  lb_wait();
 }
 
 void red_solowp(){
