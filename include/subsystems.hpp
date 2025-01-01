@@ -36,7 +36,7 @@ inline void set_lb(int input,int velocity) {
   lb.move_absolute(input,velocity);
 }
 
-inline ez::PID lbPID{2, 0, 0, 0, "LadyBrown"};
+inline ez::PID lbPID{0.5, 0, 0, 0, "LadyBrown"};
 
 inline void lb_wait() {
   while (lbPID.exit_condition({lb}, true) == ez::RUNNING) {
