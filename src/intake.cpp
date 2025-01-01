@@ -20,6 +20,5 @@ void intake_opcontrol() {
   else {
     set_intake(0);
   }
-    pros::delay(ez::util::DELAY_TIME);
 }
 

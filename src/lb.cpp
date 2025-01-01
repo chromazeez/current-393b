@@ -31,7 +31,6 @@ void lb_opcontrol() {
   //else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
      // lbPID.target_set(0);
   //}
-  pros::delay(ez::util::DELAY_TIME);
 } 
 
 

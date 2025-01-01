@@ -7,5 +7,4 @@ void set_clamp(bool input) {
 
 void clamp_opcontrol() {
   clamp_pistons.button_toggle(master.get_digital_new_press(DIGITAL_L1));
-  pros::delay(ez::util::DELAY_TIME);
 }
