@@ -36,6 +36,8 @@ void initialize() {
 
   // Set the drive to your own constants from autons.cpp!
   default_constants();
+  
+  lb_init();
 
   // These are already defaulted to these buttons, but you can change the left/right curve buttons here!
   // chassis.opcontrol_curve_buttons_left_set(pros::E_CONTROLLER_DIGITAL_LEFT, pros::E_CONTROLLER_DIGITAL_RIGHT);  // If using tank, only the left side is used.
@@ -122,9 +124,6 @@ void opcontrol() {
   chassis.drive_brake_set(driver_preference_brake);
 
   set_clamp(false);
-
-  lb_init();
-
 
   while (true) {
     // PID Tuner

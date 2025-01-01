@@ -25,8 +25,8 @@ inline pros::Rotation lb_angle(5);
 
 void lb_opcontrol();
 void lb_init();
-inline void set_lb(int input,int velocity) {
-  lb.move_absolute(input,velocity);
+inline void set_lb(int input) {
+  lb.move(input);
 }
 
 inline ez::PID lbPID{0.5, 0, 0, 0, "LadyBrown"};

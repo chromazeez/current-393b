@@ -12,7 +12,7 @@ void lb_init() {
 void lift_task() {
   pros::delay(2000);  // Set EZ-Template calibrate before this function starts running
   while (true){
-    set_lb(lbPID.compute(lb_angle.get_position()/100),100);
+    set_lb(lbPID.compute(lb_angle.get_position()/100));
     pros::delay(ez::util::DELAY_TIME);
   }
 
@@ -22,11 +22,11 @@ pros::Task Lift_Task(lift_task);  // Create the task, this will cause the functi
 void lb_opcontrol() {
   // load
   if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)) {
-      lbPID.target_set(-60); 
+      lbPID.target_set(60); 
   }
   // score
   else if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
-      lbPID.target_set(-2500);
+      lbPID.target_set(2500);
   }
   //else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
      // lbPID.target_set(0);
