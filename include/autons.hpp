@@ -5,6 +5,7 @@
 extern Drive chassis;
 
 void test();
+void test2();
 void red_2ring_goalside();
 void blue_2ring_goalside();
 void drive_and_turn();

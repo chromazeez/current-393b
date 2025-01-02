@@ -198,6 +198,11 @@ void lift_pid(){
   lb_wait();
 }
 
+void test2(){
+  chassis.pid_turn_set(90,127);
+  chassis.pid_wait();
+}
+
 void test(){
   chassis.pid_turn_set(90,127);
   /*
