@@ -4,7 +4,7 @@
 
 extern Drive chassis;
 
-void red_solowp();
+void test();
 void red_2ring_goalside();
 void blue_2ring_goalside();
 void drive_and_turn();

@@ -198,7 +198,8 @@ void lift_pid(){
   lb_wait();
 }
 
-void red_solowp(){
+void test(){
+  chassis.pid_turn_set(90,127);
   /*
   chassis.pid_drive_set(-24_in, DRIVE_SPEED, true); // back up into ring
   chassis.pid_wait();

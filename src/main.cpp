@@ -1,5 +1,6 @@
 #include "main.h"
 #include "autons.hpp"
+#include "pros/misc.h"
 #include "subsystems.hpp"
 
 /////
@@ -47,10 +48,10 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      Auton("red ringside", red_solowp),
-      Auton("red goalside", red_2ring_goalside),
-      Auton("blue goalside", blue_2ring_goalside),
-      Auton("lift test", lift_pid),
+      Auton("test", test),
+      //Auton("red goalside", red_2ring_goalside),
+      //Auton("blue goalside", blue_2ring_goalside),
+      //Auton("lift test", lift_pid),
 
       //Auton("Drive and Turn\n\nDrive forward, turn, come back. ", drive_and_turn),
       //Auton("Drive and Turn\n\nSlow down during drive.", wait_until_change_speed),
