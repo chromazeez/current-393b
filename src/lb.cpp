@@ -3,11 +3,14 @@
 #include "subsystems.hpp"
 
 
+
 void lb_init() {
   lb_angle.reset_position();
   lb.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   lbPID.exit_condition_set(80, 50, 300, 150, 500, 500);
 }
+
+
 
 void lift_task() {
   pros::delay(2000);  // Set EZ-Template calibrate before this function starts running
@@ -27,6 +30,9 @@ void lb_opcontrol() {
   // score
   else if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
       lbPID.target_set(100);
+  }
+  else if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) {
+      lbPID.target_set(0);
   }
   //else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
      // lbPID.target_set(0);
