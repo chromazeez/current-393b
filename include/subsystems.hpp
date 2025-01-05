@@ -29,8 +29,7 @@ inline void set_lb(int input) {
   lb.move(input);
 }
 
-
-inline ez::PID lbPID{1.8, 0, 17, 0, "LadyBrown"};
+inline ez::PID lbPID{2.4, 0, 18, 0, "LadyBrown"};
 
 inline void lb_wait() {
   while (lbPID.exit_condition({lb}, true) == ez::RUNNING) {
