@@ -21,7 +21,7 @@ void intake_opcontrol();
 
 //lb
 inline pros::Motor lb(4);
-inline pros::Rotation lb_angle(5);
+//inline pros::Rotation lb_angle(5);
 
 void lb_opcontrol();
 void lb_init();
@@ -29,7 +29,7 @@ inline void set_lb(int input) {
   lb.move(input);
 }
 
-inline ez::PID lbPID{2.4, 0, 18, 0, "LadyBrown"};
+inline ez::PID lbPID{0.5, 0, 5, 0, "LadyBrown"};
 
 inline void lb_wait() {
   while (lbPID.exit_condition({lb}, true) == ez::RUNNING) {

@@ -45,15 +45,15 @@ void lb_opcontrol() {
       break;
     // load
     case 1:
-      lbPID.target_set(45);
+      lbPID.target_set(850);
       break;
     // high
     case 2:
-      lbPID.target_set(120);
+      lbPID.target_set(1900);
       break;
     // score
     case 3:
-      lbPID.target_set(165);
+      lbPID.target_set(2300);
       break;
   }
 
