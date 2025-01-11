@@ -33,8 +33,9 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      Auton("test", test2),
-      //Auton("red goalside", red_2ring_goalside),
+      Auton("Blue Ringside Winpoint", blue_solowp),
+      Auton("Red Ringside Winpoint", red_solowp),
+        //Auton("red goalside", red_2ring_goalside),
       //Auton("blue goalside", blue_2ring_goalside),
       //Auton("lift test", lift_pid),
 
@@ -49,7 +50,7 @@ void initialize() {
   // Initialize chassis and auton selector
   chassis.initialize();
   ez::as::initialize();
-  master.rumble(".");
+  master.rumble(chassis.drive_imu_calibrated()?".":"---");
 }
 
 /**
@@ -139,7 +140,7 @@ void opcontrol() {
       intake_opcontrol();
       clamp_opcontrol();
       lb_opcontrol();
-
+      intake_piston_opcontrol();
 
       pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }

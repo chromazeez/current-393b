@@ -22,3 +22,11 @@ void intake_opcontrol() {
   }
 }
 
+void set_ipiston(bool input) {
+  i_piston.set(input);
+}
+
+void intake_piston_opcontrol() {
+  i_piston.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT));
+}
+

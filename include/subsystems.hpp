@@ -29,6 +29,10 @@ inline void set_lb(int input) {
   lb.move(input);
 }
 
+inline ez::Piston i_piston('H');
+void set_ipiston(bool input);
+void intake_piston_opcontrol();
+
 inline ez::PID lbPID{0.5, 0, 5, 0, "LadyBrown"};
 
 inline void lb_wait() {
