@@ -35,6 +35,7 @@ void initialize() {
   ez::as::auton_selector.autons_add({
       Auton("Blue Ringside Winpoint", blue_solowp),
       Auton("Red Ringside Winpoint", red_solowp),
+      Auton("Goalside", goalside_red),
         //Auton("red goalside", red_2ring_goalside),
       //Auton("blue goalside", blue_2ring_goalside),
       //Auton("lift test", lift_pid),
