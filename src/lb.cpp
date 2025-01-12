@@ -1,7 +1,7 @@
 #include "EZ-Template/util.hpp"
-#include "main.h"
 #include "pros/misc.h"
 #include "subsystems.hpp"
+#include "main.h"
 
 void lb_init() {
   //lb_angle.reset_position();
