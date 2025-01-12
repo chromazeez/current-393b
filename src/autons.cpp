@@ -264,7 +264,9 @@ void blue_solowp(){
 
   chassis.pid_drive_set(23_in,127,true);
   chassis.pid_wait();
-  pros::delay(2500);
+  pros::delay(100);
+  lbPID.target_set(2400);
+  pros::delay(2000);
 }
 
 void red_solowp(){
@@ -345,7 +347,9 @@ void red_solowp(){
 
   chassis.pid_drive_set(23_in,127,true);
   chassis.pid_wait();
-  pros::delay(2500);
+  pros::delay(100);
+  lbPID.target_set(2400);
+  pros::delay(2000);
 }
 
 void goalside_red(){
@@ -409,3 +413,34 @@ void goalside_blue(){
   pros::delay(1000);
   set_intake(0);
 }
+
+void skills(){
+  set_ipiston(true);
+  pros::delay(75);
+  set_intake(127);
+  pros::delay(250);
+  set_intake(0);
+  chassis.pid_drive_set(14_in,80,true);
+  chassis.pid_wait();
+  pros::delay(100);
+  chassis.pid_turn_set(90,80);
+  chassis.pid_wait();
+  pros::delay(100);
+  chassis.pid_drive_set(-16_in,60,true);
+  chassis.pid_wait();
+  set_clamp(true);
+  pros::delay(100);
+  chassis.pid_drive_set(-7_in,80,true);
+  chassis.pid_wait();
+  pros::delay(100);
+  chassis.pid_turn_set(0,80);
+  chassis.pid_wait();
+  pros::delay(100);
+  set_intake(127);
+  chassis.pid_drive_set(15_in,80,true);
+  chassis.pid_wait();
+  pros::delay(3000);
+  set_intake(0);
+
+
+} 

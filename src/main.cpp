@@ -37,6 +37,7 @@ void initialize() {
       Auton("Red Ringside Winpoint", red_solowp),
       Auton("Red Goalside", goalside_red),
       Auton("Blue Goalside", goalside_blue),
+      Auton("Skills", skills),
         //Auton("red goalside", red_2ring_goalside),
       //Auton("blue goalside", blue_2ring_goalside),
       //Auton("lift test", lift_pid),
