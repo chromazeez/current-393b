@@ -33,10 +33,10 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      Auton("Blue Ringside Winpoint", blue_solowp),
-      Auton("Red Ringside Winpoint", red_solowp),
-      Auton("Red Goalside", goalside_red),
-      Auton("Blue Goalside", goalside_blue),
+      Auton("Blue Ringside Winpoint", blue_ringside),
+      Auton("Blue Goalside", blue_goalside),
+      Auton("Red Ringside Winpoint", red_ringside),
+      Auton("Red Goalside", red_goalside),
       Auton("Skills", skills),
   });
 

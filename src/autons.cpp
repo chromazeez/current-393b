@@ -194,7 +194,7 @@ void interfered_example() {
   chassis.pid_wait();
 }
 
-void base_solowp(){
+void base_ringside(){
   set_ipiston(true);
   pros::delay(75);
   chassis.pid_drive_set(-17_in, 80, true); 
@@ -271,47 +271,16 @@ void base_solowp(){
 }
 
 void blue_ringside(){
-  base_solowp();
+  base_ringside();
 }
 
 void red_ringside(){
   chassis.odom_theta_flip();
   chassis.odom_theta_direction_get();
-  base_solowp();
+  base_ringside();
 }
 
-void goalside_red(){
-  set_ipiston(true);
-  pros::delay(75);
-  chassis.pid_drive_set(-21.00_in,90,true);
-  chassis.pid_wait();
-  pros::delay(250);
-  chassis.pid_drive_set(-1.75_in,90,true);
-  chassis.pid_wait();
-  pros::delay(250);
-  set_clamp(true);
-  pros::delay(100);
-  set_intake(127);
-  pros::delay(500);
-  set_intake(0);
-  pros::delay(100); 
-  chassis.pid_turn_set(-95,127);
-  chassis.pid_wait();
-  pros::delay(100);
-  set_intake(127);
-  chassis.pid_drive_set(26_in,90,true);
-  chassis.pid_wait();
-  pros::delay(500);
-  chassis.pid_turn_set(-70,127);
-  chassis.pid_wait();
-  pros::delay(600);
-  chassis.pid_drive_set(-34.25_in,127,true);
-  chassis.pid_wait();
-  pros::delay(1000);
-  set_intake(0);
-}
-
-void goalside_blue(){
+void base_goalside(){
   set_ipiston(true);
   pros::delay(75);
   chassis.pid_drive_set(-21.00_in,90,true);
@@ -342,6 +311,16 @@ void goalside_blue(){
   set_intake(0);
 }
 
+void blue_goalside(){
+  base_goalside();
+}
+
+void red_goalside(){
+  chassis.odom_theta_flip();
+  chassis.odom_theta_direction_get();
+  base_goalside();
+}
+
 void skills(){
   set_ipiston(true);
   pros::delay(75);
@@ -369,6 +348,4 @@ void skills(){
   chassis.pid_wait();
   pros::delay(3000);
   set_intake(0);
-
-
 } 
