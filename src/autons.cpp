@@ -194,7 +194,7 @@ void interfered_example() {
   chassis.pid_wait();
 }
 
-void blue_solowp(){
+void base_solowp(){
   set_ipiston(true);
   pros::delay(75);
   chassis.pid_drive_set(-17_in, 80, true); 
@@ -237,6 +237,7 @@ void blue_solowp(){
   chassis.pid_drive_set(23_in,127,true);
   chassis.pid_wait();
   pros::delay(100);
+
 //  chassis.pid_drive_set(2.5_in,80,true);
 //  chassis.pid_wait();
 
@@ -269,87 +270,14 @@ void blue_solowp(){
   pros::delay(2000);
 }
 
-void red_solowp(){
-  set_ipiston(true);
-  pros::delay(75);
-  // this makes chasiss drive a set amount of inches (+/- for direction) and with a speed, the speed is out of of 127
-  chassis.pid_drive_set(-17_in, 80, true); 
-  // YOU NEED TO ADD THIS AFTER EVER CHASSIS MOVEMENT OR TURN  after anything that is chassis.pid.etc...
-  chassis.pid_wait();
-  // this is the amount of delay between each movement | 1000 milliseconds = 1 second
-  pros::delay(250);
-  // turning -90 degrees KEEP IN MIND this turning is from the starting point so it is not relative to where u are but where u started
-  chassis.pid_turn_set(90,127);
-  // YOU NEED TO ADD THIS AFTER EVER CHASSIS MOVEMENT OR TURN also dont put anything after ur chassis movement UNTIL u have this wait statement
-  chassis.pid_wait();
-  pros::delay(200);
-  chassis.pid_drive_set(-2_in, DRIVE_SPEED, true);
-  chassis.pid_wait();
-  // this command spins the intake
-  set_intake(127);
-  // wait a second
-  pros::delay(1000);
-  // stop spinning the intake --> these three lines have spun the intake for 1 second
-  set_intake(0);
-  pros::delay(200);
+void blue_ringside(){
+  base_solowp();
+}
 
-  chassis.pid_drive_set(2_in,80, true);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(-130,127);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(-32.75_in,75,true);
-  chassis.pid_wait();
-
-  pros::delay(100);
-  chassis.pid_drive_set(-1.75_in,50,true);
-  chassis.pid_wait();
-
-  pros::delay(250);
-  clamp_pistons.set(true);
-
-  pros::delay(100);
-  chassis.pid_turn_set(0,127,true);
-  chassis.pid_wait();
-
-  pros::delay(100);
-
-  set_intake(127);
-
-  chassis.pid_drive_set(23_in,127,true);
-  chassis.pid_wait();
-  pros::delay(100);
-//  chassis.pid_drive_set(2.5_in,80,true);
-//  chassis.pid_wait();
-
-//  pros::delay(500);
-
-  chassis.pid_turn_set(85,127);
-  chassis.pid_wait();
-  
-  pros::delay(100);
-
-  chassis.pid_drive_set(14.5_in,100,true);
-  chassis.pid_wait();
-  pros::delay(100);
-//  chassis.pid_drive_set(1_in,80,true);
-//  chassis.pid_wait();
-//  pros::delay(500);
-
-  chassis.pid_turn_set(180,127,true);
-  chassis.pid_wait();
-  pros::delay(500);
-
-//  chassis.pid_drive_set(2_in,80,true);
-//  chassis.pid_wait();
-//  pros::delay(500);
-
-  chassis.pid_drive_set(23_in,127,true);
-  chassis.pid_wait();
-  pros::delay(100);
-  lbPID.target_set(2400);
-  pros::delay(2000);
+void red_ringside(){
+  chassis.odom_theta_flip();
+  chassis.odom_theta_direction_get();
+  base_solowp();
 }
 
 void goalside_red(){
